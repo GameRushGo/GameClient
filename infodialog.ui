@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoDialog</class>
+ <widget class="QDialog" name="InfoDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>397</width>
+    <height>656</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>397</width>
+    <height>656</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>397</width>
+    <height>656</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>个人信息</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog#InfoDialog{
+	
+	
+	border-image: url(:/Photo/Info/信息界面.jpg);
+}</string>
+  </property>
+  <widget class="QLabel" name="Image">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>80</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/Photo/头像.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>43</x>
+     <y>190</y>
+     <width>331</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>账号</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>组号</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>研究类型</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>电话号码</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>身份证号</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>体重</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_9">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>视力</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="account_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>账号</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="groupnum_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>组</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="research_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>类型</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="tel_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>电话</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="id_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="weight_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>体重</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="vision_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>视力</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>161</width>
+     <height>112</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_10">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>姓名</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>年级</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>部门</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="name_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>姓名</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="department_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>年级</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="grade_label">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;YaHei Consolas Hybrid&quot;;</string>
+        </property>
+        <property name="text">
+         <string>部门</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>580</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#pushButton{
+	color: rgb(255, 255, 255);
+	font: 12pt &quot;YaHei Consolas Hybrid&quot;;
+}
+QPushButton#pushButton:hover{	
+	
+	color: rgb(184, 184, 184);
+	font: 12pt &quot;YaHei Consolas Hybrid&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>140</y>
+     <width>311</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 25 9pt &quot;Microsoft YaHei UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>_____________________________________________</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

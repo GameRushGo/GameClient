@@ -1,0 +1,198 @@
+#include "managedialog.h"
+#include "ui_managedialog.h"
+#include <QFileDialog>
+
+
+ManageDialog::ManageDialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::ManageDialog)
+{
+    m_data = new ManageData();
+    ui->setupUi(this);
+
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
+
+    //绑定六个button，分别对应六个按钮
+    //EEGButton
+    connect(ui->EEGButton, &QPushButton::pressed,
+            [=]()
+            {
+                QString path = setPath(this->EGG_path);
+                if(path.isNull() || path == nullptr)
+                    return;
+                this->EGG_path = path;
+                ui->lineEdit_EGG->setText(path);
+            }
+            );
+    //BGButton
+    connect(ui->BGButton, &QPushButton::pressed,
+            [=]()
+            {
+                QString path = setPath(this->BG_path);
+                if(path.isNull() || path == nullptr)
+                    return;
+                this->BG_path = path;
+                ui->lineEdit_BG->setText(path);
+            }
+            );
+    //Pointer
+    connect(ui->PointerButton, &QPushButton::pressed,
+            [=]()
+            {
+                QString path = setPath(this->pointer_path);
+                if(path.isNull() || path == nullptr)
+                    return;
+                this->pointer_path = path;
+                ui->lineEdit_Pointer->setText(path);
+            }
+            );
+    //Flop
+    connect(ui->FlopButton, &QPushButton::pressed,
+            [=]()
+            {
+                QString path = setPath(this->flop_path);
+                if(path.isNull() || path == nullptr)
+                    return;
+                this->flop_path = path;
+                ui->lineEdit_Flop->setText(path);
+            }
+            );
+    //Voice
+    connect(ui->VoiceButton, &QPushButton::pressed,
+            [=]()
+            {
+                QString path = setPath(this->voice_path);
+                if(path.isNull() || path == nullptr)
+                    return;
+                this->voice_path = path;
+                ui->lineEdit_Voice->setText(path);
+            }
+            );
+    //HandEye
+    connect(ui->HandEyeButton, &QPushButton::pressed,
+            [=]()
+            {
+                QString path = setPath(this->handEye_path);
+                if(path.isNull() || path == nullptr)
+                    return;
+                this->handEye_path = path;
+                ui->lineEdit_HandEye->setText(path);
+            }
+            );
+
+    //checkbox
+    connect(ui->checkBox, &QCheckBox::clicked,
+            [=]()
+            {
+                QString check_str = "当前文件路径可被修改";
+                QString uncheck_str = "当前文件路径禁止修改";
+                //检查当前状态
+                if(ui->checkBox->checkState())
+                {
+                    ui->checkBox->setText(check_str);
+                    ui->EEGButton->setEnabled(true);
+                    ui->BGButton->setEnabled(true);
+                    ui->PointerButton->setEnabled(true);
+                    ui->FlopButton->setEnabled(true);
+                    ui->VoiceButton->setEnabled(true);
+                    ui->HandEyeButton->setEnabled(true);
+                }
+                else
+                {
+                    ui->checkBox->setText(uncheck_str);
+                    ui->EEGButton->setEnabled(false);
+                    ui->BGButton->setEnabled(false);
+                    ui->PointerButton->setEnabled(false);
+                    ui->FlopButton->setEnabled(false);
+                    ui->VoiceButton->setEnabled(false);
+                    ui->HandEyeButton->setEnabled(false);
+                }
+            }
+            );
+    //读取配置文件
+    getPath();
+}
+
+ManageDialog::~ManageDialog()
+{
+    //若内容更新
+    if(isModify)
+    {
+        app_list.clear();
+        app_list.append(pointer_path);
+        app_list.append(flop_path);
+        app_list.append(voice_path);
+        app_list.append(handEye_path);
+
+        //写入到配置文件
+        m_data->setEEGPath(EGG_path);
+        m_data->setBGPath(BG_path);
+        m_data->setAppPath(app_list);
+    }
+
+    app_list.clear();
+    file_path.clear();
+    delete m_data;
+    delete ui;
+}
+
+//读取配置文件并显示在lineedit
+void ManageDialog::getPath()
+{
+    //读取路径
+    EGG_path = m_data->getEEGPath();
+    BG_path = m_data->getBGPath();
+    app_list = m_data->getAppPath();
+
+    //设置lineedit内容
+    ui->lineEdit_EGG->setText(EGG_path);
+    ui->lineEdit_BG->setText(BG_path);
+    foreach(QString path, app_list)
+    {
+        if(path.contains("StickPinGame"))
+        {
+            ui->lineEdit_Pointer->setText(path);
+            pointer_path = path;
+        }
+        else if(path.contains("记忆"))
+        {
+            ui->lineEdit_Flop->setText(path);
+            flop_path = path;
+        }
+        else if(path.contains("FanFanLe6"))
+        {
+            ui->lineEdit_Voice->setText(path);
+            voice_path = path;
+        }
+        else if(path.contains("手眼协调"))
+        {
+            ui->lineEdit_HandEye->setText(path);
+            handEye_path = path;
+        }
+        else
+            qDebug() << "Illegal Path!";
+    }
+}
+
+/* 设置文件路径，包含下列步骤：
+ * 1. 弹出文件对话框
+ * 2. 获取用户选择路径
+ * 3. 读取路径并显示在lineedit中
+ * 4. 用户确定时保存内容到配置文件
+ *
+*/
+QString ManageDialog::setPath(const QString &dir, const QString filter)
+{
+    QString path = QFileDialog::getOpenFileName(this,"请选择文件",dir, filter);
+    if(path.isNull() || path == ""){
+        qDebug() << "Illegal Path.";
+        return "";
+    }
+
+    //一旦修改路径，isModify会被修改为true
+    if(path != dir){
+        isModify = true;
+    }
+    return path;
+}
+

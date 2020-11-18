@@ -1,0 +1,48 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Photo/头像.png</file>
+        <file>Photo/Login/保存密码.png</file>
+        <file>Photo/Login/登录游戏.png</file>
+        <file>Photo/Login/默认登陆.png</file>
+        <file>Photo/Login/登陆界面.jpg</file>
+        <file>Photo/Login/密码.png</file>
+        <file>Photo/Login/editline.png</file>
+        <file>Photo/Login/用户名.png</file>
+        <file>Photo/Login/注意力增强平台.png</file>
+        <file>Photo/MainWindow/CS Go-A.png</file>
+        <file>Photo/MainWindow/辅助游戏A.png</file>
+        <file>Photo/MainWindow/管理A.png</file>
+        <file>Photo/MainWindow/管理B.png</file>
+        <file>Photo/MainWindow/脑电程序A.png</file>
+        <file>Photo/MainWindow/脑电程序B.png</file>
+        <file>Photo/MainWindow/退出游戏A.png</file>
+        <file>Photo/MainWindow/退出游戏B.png</file>
+        <file>Photo/MainWindow/注意力增强平台-主界面.png</file>
+        <file>Photo/MainWindow/游戏界面.jpg</file>
+        <file>Photo/Game/翻牌A.png</file>
+        <file>Photo/Game/辅助游戏返回A.png</file>
+        <file>Photo/Game/射击A.png</file>
+        <file>Photo/Game/声音匹配A.png</file>
+        <file>Photo/Game/手眼协调A.png</file>
+        <file>Photo/MainWindow/CS GO-B.png</file>
+        <file>Photo/MainWindow/辅助游戏B.png</file>
+        <file>Photo/Game/翻牌B.png</file>
+        <file>Photo/Game/辅助游戏返回B.png</file>
+        <file>Photo/Game/射击B.png</file>
+        <file>Photo/Game/声音匹配B.png</file>
+        <file>Photo/Game/手眼协调B.png</file>
+        <file>Photo/Login/取消登录.png</file>
+        <file>Photo/Login/登录游戏A.png</file>
+        <file>Photo/Login/登录游戏B.png</file>
+        <file>Photo/Login/取消A.png</file>
+        <file>Photo/Login/取消B.png</file>
+        <file>Photo/MainWindow/辅助游戏返回A.png</file>
+        <file>Photo/MainWindow/辅助游戏返回B.png</file>
+        <file>Photo/Info/个人信息.png</file>
+        <file>Photo/Info/信息界面.jpg</file>
+        <file>Photo/Login/注意力增强.png</file>
+        <file>Photo/Manage/管理界面.jpg</file>
+        <file>Photo/Login/登陆界面_2.png</file>
+        <file>Photo/Login/底色.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,25 @@
+QFtp模块编译与修改记录：
+
+问题说明：
+	由于QFtp为QT 4.0内置模块，无法直接在QT5.0+版本中使用，因此对其源码进行了重编译，源码下载地址：https://github.com/qt/qtftp
+	但在编译完成后，使用QFtp会出现至少两个错误或警告:
+	1. 无法正确处理中文，导致中文目录或文件名出现乱码
+	2. 在运行时出现“Using QCharRef with an index pointing outside the valid range of a QString”警告
+	
+解决方案：
+	1. 统一编码为utf-8，替换以下调用函数
+	   fromLatin1 -> fromUtf8
+	   toLatin1 -> toUtf8
+
+	2. 源代码错误发生在：
+		QString endOfMultiLine;
+		endOfMultiLine[0] = '0' + replyCode[0];
+		...
+	   将其修改为：
+		QString endOfMultiLine;
+		endOfMultiLine.resize(4);
+		endOfMultiLine[0] = '0' + replyCode[0];
+		....
+
+编译步骤：
+	参考：https://developer.aliyun.com/article/119819
