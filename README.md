@@ -1,6 +1,6 @@
-# GameClient
-The Client for EEG.
- 
+# 注意力增强游戏平台
+## 描述
+"GameClient"项目为"注意力增强游戏平台"客户端。
 ## 版本信息
 - 编译器版本
 请使用msvc2015(64bit)及以上版本。
@@ -36,3 +36,10 @@ The Client for EEG.
 - 用户仅可使用默认头像，无法自定义头像
 - 游戏新闻模块当前仅为静态图片资源，无法响应打开链接操作，无法自动更新新闻
 - 在退出程序时有时会出现警告："线程未正确终止"
+
+## 运行截图
+<div align=center><img width="500" src ="https://res.cloudinary.com/macc1989/image/upload/v1606638206/samples/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%A2%9E%E5%BC%BA%E6%B8%B8%E6%88%8F%E5%B9%B3%E5%8F%B0/LoginDialog.png" alt="登录窗口"></div><br>
+<div align=center><img width="800" src ="https://res.cloudinary.com/macc1989/image/upload/v1606638206/samples/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%A2%9E%E5%BC%BA%E6%B8%B8%E6%88%8F%E5%B9%B3%E5%8F%B0/MainWindow.png" alt="主窗口1"></div><br>
+<div align=center><img width="800" src ="https://res.cloudinary.com/macc1989/image/upload/v1606638206/samples/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%A2%9E%E5%BC%BA%E6%B8%B8%E6%88%8F%E5%B9%B3%E5%8F%B0/MainWindow2.png" alt="主窗口2"></div><br>
+ <div align=center><img width="800" src ="https://res.cloudinary.com/macc1989/image/upload/v1606638207/samples/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%A2%9E%E5%BC%BA%E6%B8%B8%E6%88%8F%E5%B9%B3%E5%8F%B0/MainWindow3.png" alt="主窗口3"></div><br>
+  <div align=center><img width="500" src ="https://res.cloudinary.com/macc1989/image/upload/v1606638206/samples/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%A2%9E%E5%BC%BA%E6%B8%B8%E6%88%8F%E5%B9%B3%E5%8F%B0/ManageDialog.png" alt="管理"></div><br>
