@@ -29,6 +29,13 @@ public:
     void setAppPath(const QList<QString> &file_path);
     QList<QString> getAppPath() const;
 
+    //管理url
+    void setFtpUrl(const QString& url);
+    QString getFtpUrl();
+
+    void setLoginUrl(const QString& url);
+    QString getLoginUrl() const;
+
     //ToSring函数，返回所有数据[保留]
     QString toString();
 

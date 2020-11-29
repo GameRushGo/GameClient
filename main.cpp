@@ -1,6 +1,10 @@
 #include "mainwindow.h"
+#include "easylogging++.h"
 
 #include <QApplication>
+#include <QDir>
+
+INITIALIZE_EASYLOGGINGPP
 
 /*
  *  数据管理：
@@ -34,9 +38,32 @@
 
 */
 
+void init()
+{
+    //检查Log目录是否存在
+    QDir *dir = new QDir("Log");
+    if(!dir->exists()){
+        dir->mkdir(QCoreApplication::applicationDirPath() + "/Log");
+    }
+
+    //初始化日志系统
+    el::Configurations conf(QString(QCoreApplication::applicationDirPath() + "/logConf.conf").toStdString());
+    el::Loggers::reconfigureAllLoggers(conf);
+
+    LOG(INFO) << "***** App Start *****";
+
+    if(dir){
+        delete dir;
+        dir = NULL;
+    }
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    //初始化Log日志系统
+    init();
     MainWindow w;
     w.show();
     return a.exec();

@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     cglobal.cpp \
     checkprocess.cpp \
+    easylogging++.cc \
     filewatcher.cpp \
     ftpclient.cpp \
     ftpdialog.cpp \
@@ -28,11 +29,13 @@ SOURCES += \
     mainwindow.cpp \
     managedata.cpp \
     managedialog.cpp \
+    rc4.cpp \
     userinfo.cpp
 
 HEADERS += \
     cglobal.h \
     checkprocess.h \
+    easylogging++.h \
     filewatcher.h \
     ftpclient.h \
     ftpdialog.h \
@@ -41,6 +44,7 @@ HEADERS += \
     mainwindow.h \
     managedata.h \
     managedialog.h \
+    rc4.h \
     structs.h \
     userinfo.h
 
@@ -49,8 +53,7 @@ FORMS += \
     infodialog.ui \
     logindialog.ui \
     mainwindow.ui \
-    managedialog.ui \
-    testdialog.ui
+    managedialog.ui
 
 TRANSLATIONS += \
     GameClient_zh_CN.ts
@@ -71,7 +74,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource.qrc
 
-DISTFILES += \
+DISTFILES += \    
     Log/QFtp模块编译与修改记录.txt \
     Photo/头像.jpg \
     Photo/头像.png

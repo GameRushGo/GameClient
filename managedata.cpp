@@ -5,7 +5,7 @@ ManageData::ManageData()
     //创建ini
     pIni = new QSettings(QCoreApplication::applicationDirPath() + "/setting.ini", QSettings::IniFormat);
     pIni->setIniCodec(QTextCodec::codecForName("utf-8"));
-    qDebug() << "setting.ini path: " << QCoreApplication::applicationDirPath() + "/setting.ini";
+    //qDebug() << "setting.ini path: " << QCoreApplication::applicationDirPath() + "/setting.ini";
 }
 
 //回收内存
@@ -32,7 +32,7 @@ QString ManageData::getDataPath() const
 
     //分离文件和根路径，只保留根目录
     int n = path.lastIndexOf("/");
-    qDebug() << path.left(n);
+    //qDebug() << path.left(n);
     return path.left(n);
 }
 
@@ -93,9 +93,18 @@ QList<QString> ManageData::getAppPath() const
     for(int i = 0;i < count;i++){
         pIni->setArrayIndex(i);
         file_list.append(pIni->value("Path").toString());
-        qDebug() << pIni->value("Path").toString();
     }
     pIni->endArray();
 
     return file_list;
+}
+
+//Url
+QString ManageData::getLoginUrl() const
+{    
+    QString url = pIni->value("/Url/Login").toString();
+    if(url.isEmpty()){
+        return "";
+    }
+    return url;
 }
