@@ -1,48 +1,62 @@
 <RCC>
     <qresource prefix="/">
         <file>Photo/头像.png</file>
-        <file>Photo/Login/保存密码.png</file>
-        <file>Photo/Login/登录游戏.png</file>
-        <file>Photo/Login/默认登陆.png</file>
-        <file>Photo/Login/登陆界面.jpg</file>
-        <file>Photo/Login/密码.png</file>
-        <file>Photo/Login/editline.png</file>
-        <file>Photo/Login/用户名.png</file>
-        <file>Photo/Login/注意力增强平台.png</file>
-        <file>Photo/MainWindow/CS Go-A.png</file>
-        <file>Photo/MainWindow/辅助游戏A.png</file>
-        <file>Photo/MainWindow/管理A.png</file>
-        <file>Photo/MainWindow/管理B.png</file>
-        <file>Photo/MainWindow/脑电程序A.png</file>
-        <file>Photo/MainWindow/脑电程序B.png</file>
-        <file>Photo/MainWindow/退出游戏A.png</file>
-        <file>Photo/MainWindow/退出游戏B.png</file>
-        <file>Photo/MainWindow/注意力增强平台-主界面.png</file>
-        <file>Photo/MainWindow/游戏界面.jpg</file>
-        <file>Photo/Game/翻牌A.png</file>
-        <file>Photo/Game/辅助游戏返回A.png</file>
-        <file>Photo/Game/射击A.png</file>
-        <file>Photo/Game/声音匹配A.png</file>
-        <file>Photo/Game/手眼协调A.png</file>
-        <file>Photo/MainWindow/CS GO-B.png</file>
-        <file>Photo/MainWindow/辅助游戏B.png</file>
-        <file>Photo/Game/翻牌B.png</file>
-        <file>Photo/Game/辅助游戏返回B.png</file>
-        <file>Photo/Game/射击B.png</file>
-        <file>Photo/Game/声音匹配B.png</file>
-        <file>Photo/Game/手眼协调B.png</file>
-        <file>Photo/Login/取消登录.png</file>
-        <file>Photo/Login/登录游戏A.png</file>
-        <file>Photo/Login/登录游戏B.png</file>
-        <file>Photo/Login/取消A.png</file>
-        <file>Photo/Login/取消B.png</file>
-        <file>Photo/MainWindow/辅助游戏返回A.png</file>
-        <file>Photo/MainWindow/辅助游戏返回B.png</file>
         <file>Photo/Info/个人信息.png</file>
         <file>Photo/Info/信息界面.jpg</file>
-        <file>Photo/Login/注意力增强.png</file>
         <file>Photo/Manage/管理界面.jpg</file>
-        <file>Photo/Login/登陆界面_2.png</file>
-        <file>Photo/Login/底色.png</file>
+        <file>Photo/MainWindow/翻牌图标.png</file>
+        <file>Photo/MainWindow/翻牌图标B.png</file>
+        <file>Photo/MainWindow/射击图标.png</file>
+        <file>Photo/MainWindow/射击图标B.png</file>
+        <file>Photo/MainWindow/声音匹配图标.png</file>
+        <file>Photo/MainWindow/声音匹配图标B.png</file>
+        <file>Photo/MainWindow/手眼协调图标.png</file>
+        <file>Photo/MainWindow/手眼协调图标B.png</file>
+        <file>Photo/MainWindow/网络.png</file>
+        <file>Photo/MainWindow/细条.png</file>
+        <file>Photo/MainWindow/CSGO.png</file>
+        <file>Photo/MainWindow/CSGO-B.png</file>
+        <file>Photo/MainWindow/辅助程序.png</file>
+        <file>Photo/MainWindow/开关.png</file>
+        <file>Photo/MainWindow/脑电程序.png</file>
+        <file>Photo/MainWindow/脑电程序B.png</file>
+        <file>Photo/MainWindow/设置.png</file>
+        <file>Photo/MainWindow/阴影.png</file>
+        <file>Photo/MainWindow/管理.png</file>
+        <file>Photo/MainWindow/管理B.png</file>
+        <file>Photo/MainWindow/辅助程序B.png</file>
+        <file>Photo/MainWindow/水平线.png</file>
+        <file>Photo/News/赛博朋克_m.png</file>
+        <file>Photo/MainWindow/背景.png</file>
+        <file>Photo/MainWindow/online_log.png</file>
+        <file>Photo/MainWindow/未选中.png</file>
+        <file>Photo/MainWindow/选中.png</file>
+        <file>Photo/News/赛博朋克_m43.png</file>
+        <file>Photo/News/CS Go_m.png</file>
+        <file>Photo/News/原神_m.png</file>
+        <file>Photo/News/英伟达_m.png</file>
+        <file>Photo/MainWindow/水平线_白.png</file>
+        <file>Photo/Game/csgo.0.jpg</file>
+        <file>Photo/Game/csgo.1.jpg</file>
+        <file>Photo/Game/csgo.2.jpg</file>
+        <file>Photo/Game/csgo.3.jpg</file>
+        <file>Photo/Game/csgo.4.jpg</file>
+        <file>Photo/Game/csgo.5.jpg</file>
+        <file>Photo/Game/csgo.6.jpg</file>
+        <file>Photo/EEG/eeg_0_m.jpg</file>
+        <file>Photo/EEG/eeg_1_m.jpg</file>
+        <file>Photo/EEG/eeg_2_m.jpg</file>
+        <file>Photo/EEG/eeg_3_m.jpg</file>
+        <file>Photo/EEG/eeg_4_m.jpg</file>
+        <file>Photo/Login/Background.jpg</file>
+        <file>Photo/Login/Cancel.png</file>
+        <file>Photo/Login/Line.png</file>
+        <file>Photo/Login/Login.png</file>
+        <file>Photo/Login/Logo.png</file>
+        <file>Photo/Login/Cancel_hover.png</file>
+        <file>Photo/Login/Login_hover.png</file>
+        <file>Photo/Logo/AEGLogo_m.png</file>
+        <file>Photo/MainWindow/Background.jpg</file>
+        <file>Photo/Logo/AEGLogo_m_2.png</file>
     </qresource>
 </RCC>

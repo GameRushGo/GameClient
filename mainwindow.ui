@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
-    <height>608</height>
+    <width>1600</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,8 +18,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>923</width>
-    <height>608</height>
+    <width>16777215</width>
+    <height>16777215</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -35,352 +35,1603 @@
    <property name="styleSheet">
     <string notr="true">#centralwidget{
 	
-	border-image: url(:/Photo/MainWindow/游戏界面.jpg);
+		
+	
+	
+	
+	
+	border-image: url(:/Photo/MainWindow/背景.png);
 }</string>
    </property>
-   <widget class="QPushButton" name="AssistButton">
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>155</y>
-      <width>161</width>
-      <height>41</height>
+      <x>230</x>
+      <y>10</y>
+      <width>1006</width>
+      <height>131</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#AssistButton{
-	image: url(:/Photo/MainWindow/辅助游戏A.png);
-}
-
-QPushButton#AssistButton:hover{
-	
-	image: url(:/Photo/MainWindow/辅助游戏B.png);
-}</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="default">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BackButton">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>70</y>
-      <width>238</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#BackButton{
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="BGButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>236</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#BGButton
+{	
 	
 	
-	image: url(:/Photo/MainWindow/辅助游戏返回A.png);
-}
-
-QPushButton#BackButton:hover{
-	
-	
-	image: url(:/Photo/MainWindow/辅助游戏返回B.png);
-}</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="ManageButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>210</y>
-      <width>91</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#ManageButton{
-	image: url(:/Photo/MainWindow/管理A.png);
-}
-QPushButton#ManageButton:hover{
-	image: url(:/Photo/MainWindow/管理B.png);
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BGButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>80</y>
-      <width>181</width>
-      <height>39</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#BGButton
-{		
-	image: url(:/Photo/MainWindow/CS Go-A.png);
+	image: url(:/Photo/MainWindow/CSGO.png);
 }
 
 QPushButton#BGButton:hover
 {		
 	
-	image: url(:/Photo/MainWindow/CS GO-B.png);
+	
+	image: url(:/Photo/MainWindow/CSGO-B.png);
+}
+QPushButton#BGButton:pressed
+{		
+	
+	
+	image: url(:/Photo/MainWindow/CSGO-B.png);
 }</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="EEGButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>260</y>
-      <width>151</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#EEGButton{
-	image: url(:/Photo/MainWindow/脑电程序A.png);
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="minimumSize">
+        <size>
+         <width>2</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/MainWindow/细条.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="AssistButton">
+       <property name="minimumSize">
+        <size>
+         <width>236</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#AssistButton{
+	
+	image: url(:/Photo/MainWindow/辅助程序.png);
+}
+
+QPushButton#AssistButton::hover{
+	
+	image: url(:/Photo/MainWindow/辅助程序B.png);
+}
+
+QPushButton#AssistButton::pressed{
+	
+	image: url(:/Photo/MainWindow/辅助程序B.png);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/MainWindow/细条.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ManageButton">
+       <property name="minimumSize">
+        <size>
+         <width>236</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#ManageButton{	
+	
+	
+	
+	image: url(:/Photo/MainWindow/管理.png);
+}
+
+
+QPushButton#ManageButton::hover{				
+	image: url(:/Photo/MainWindow/管理B.png);
+}
+
+QPushButton#ManageButton::pressed{				
+	image: url(:/Photo/MainWindow/管理B.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/MainWindow/细条.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="EEGButton">
+       <property name="minimumSize">
+        <size>
+         <width>236</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#EEGButton{
+	
+	image: url(:/Photo/MainWindow/脑电程序.png);
 }
 QPushButton#EEGButton:hover{
+	
+	image: url(:/Photo/MainWindow/脑电程序B.png);
+}
+QPushButton#EEGButton:pressed{
+	
 	image: url(:/Photo/MainWindow/脑电程序B.png);
 }
 </string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="ParticipantButton">
+   <widget class="QLabel" name="versionLabel">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>460</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>被试选择</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="TestButton">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>420</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>FTP测试</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="InfoButton">
-    <property name="geometry">
-     <rect>
-      <x>790</x>
-      <y>30</y>
-      <width>61</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>OpenHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/Photo/头像.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="LogoutButton">
-    <property name="geometry">
-     <rect>
-      <x>46</x>
-      <y>310</y>
-      <width>161</width>
+      <x>70</x>
+      <y>850</y>
+      <width>181</width>
       <height>31</height>
      </rect>
     </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <underline>true</underline>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton#LogoutButton{
-	image: url(:/Photo/MainWindow/退出游戏A.png);
-}
-QPushButton#LogoutButton:hover{
-	image: url(:/Photo/MainWindow/退出游戏B.png);
-}
-
-</string>
+     <string notr="true">color: rgb(205, 190, 145);</string>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
+     <string>VERSION.0.95(beta)</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="PointerButton">
+   <widget class="QLabel" name="horizontalLabel">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>64</x>
-      <y>160</y>
-      <width>97</width>
-      <height>34</height>
+      <x>70</x>
+      <y>480</y>
+      <width>1251</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton#PointerButton{	
-	image: url(:/Photo/Game/射击A.png);
-}
-
-QPushButton#PointerButton:hover{	
-	image: url(:/Photo/Game/射击B.png);
-}</string>
+     <string notr="true">\\image: url(:/Photo/MainWindow/水平线.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
    </widget>
-   <widget class="QPushButton" name="VoiceButton">
+   <widget class="QWidget" name="InfoWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1320</x>
+      <y>0</y>
+      <width>281</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>250</y>
+       <width>244</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label_9">
+          <property name="minimumSize">
+           <size>
+            <width>71</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;组号&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_10">
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;研究类型&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_14">
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;体重&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_15">
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;视力&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_13">
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;身份证号&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_12">
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;电话号码&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="groupnumLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>组号</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="researchLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>研究类型</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="weightLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>体重</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="visionLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>视力</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="IDLabel">
+          <property name="minimumSize">
+           <size>
+            <width>160</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>******************</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="telLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>***********</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>100</y>
+       <width>251</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="minimumSize">
+           <size>
+            <width>71</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;账号  &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="minimumSize">
+           <size>
+            <width>71</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;年级&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="minimumSize">
+           <size>
+            <width>71</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;部门&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="accountLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>账号</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="gradeLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>年级</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="departmentLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>部门</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="User">
+      <item>
+       <widget class="QPushButton" name="InfoButton">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Photo/头像.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="v8">
+        <item>
+         <widget class="QLabel" name="nameLabel">
+          <property name="minimumSize">
+           <size>
+            <width>151</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>13</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>昵称</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLabel" name="onlineLogLabel">
+            <property name="maximumSize">
+             <size>
+              <width>15</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/Photo/MainWindow/online_log.png);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="onlineLabel">
+            <property name="font">
+             <font>
+              <family>等线</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(12, 166, 70);</string>
+            </property>
+            <property name="text">
+             <string>在线</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>241</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QPushButton" name="checkBox">
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#checkBox {
+	
+	image: url(:/Photo/MainWindow/未选中.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="showInfoLabel">
+          <property name="minimumSize">
+           <size>
+            <width>71</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>等线</family>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#b9b9b9;&quot;&gt;隐藏敏感信息&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="lineLabel">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>4</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Photo/MainWindow/水平线_白.png);</string>
+        </property>
+        <property name="midLineWidth">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="newsWidget" native="true">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>260</y>
-      <width>168</width>
-      <height>34</height>
+      <y>510</y>
+      <width>1251</width>
+      <height>291</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#VoiceButton
+    <widget class="QWidget" name="horizontalLayoutWidget_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>1221</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="newsLabel">
+      <item>
+       <widget class="QLabel" name="newsLabel_0">
+        <property name="minimumSize">
+         <size>
+          <width>350</width>
+          <height>263</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>350</width>
+          <height>263</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-image: url(:/Photo/News/赛博朋克_m43.png);</string>
+        </property>
+        <property name="text">
+         <string>【赛博朋克2077】官方光追推荐
+配置要求</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <item>
+           <widget class="QLabel" name="newsLabel_1">
+            <property name="minimumSize">
+             <size>
+              <width>250</width>
+              <height>141</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>141</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>9</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <stylestrategy>PreferAntialias</stylestrategy>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 75 9pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-image: url(:/Photo/News/CS Go_m.png);</string>
+            </property>
+            <property name="text">
+             <string>【CS:GO】冷知识：你对护具机制
+了解多少</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="newsLabel_2">
+            <property name="minimumSize">
+             <size>
+              <width>250</width>
+              <height>141</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>141</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <stylestrategy>PreferAntialias</stylestrategy>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 9pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-image: url(:/Photo/News/原神_m.png);</string>
+            </property>
+            <property name="text">
+             <string>【原神】发布钟离角色PV-
+[额外的记账]</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="newsLabel_3">
+            <property name="minimumSize">
+             <size>
+              <width>250</width>
+              <height>141</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>141</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <stylestrategy>PreferAntialias</stylestrategy>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 9pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-image: url(:/Photo/News/英伟达_m.png);</string>
+            </property>
+            <property name="text">
+             <string>【英伟达】RTX3060现身GeekBench
+跑分超GTX 2080 Super</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>15</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="TextNewLabel">
+          <property name="font">
+           <font>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#cdbe79;&quot;&gt;● 【彩虹六号】最新圣诞节雪球模式曝光&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#cdbe79;&quot;&gt;● 【如龙】系列15周年直播纪念会将于12月8日举行&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#cdbe79;&quot;&gt;● XSS、PS5入选《时代周刊》2020最佳发明&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>1350</x>
+      <y>760</y>
+      <width>211</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="LogoutButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#LogoutButton{
+	
+	image: url(:/Photo/MainWindow/开关.png);
+}
+
+
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="TestButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/MainWindow/设置.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="WifiButton">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/MainWindow/网络.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>160</y>
+      <width>1230</width>
+      <height>310</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QWidget" name="AssistWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>1211</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>1171</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="VoiceButton">
+          <property name="minimumSize">
+           <size>
+            <width>170</width>
+            <height>240</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#VoiceButton
 {
-	image: url(:/Photo/Game/声音匹配A.png);
+	
+	image: url(:/Photo/MainWindow/声音匹配图标.png);
 }
 
 QPushButton#VoiceButton:hover
 {
-	image: url(:/Photo/Game/声音匹配B.png);
+	image: url(:/Photo/MainWindow/声音匹配图标B.png);
 }</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="FlopButton">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>210</y>
-      <width>105</width>
-      <height>34</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#FlopButton{
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="FlopButton">
+          <property name="minimumSize">
+           <size>
+            <width>170</width>
+            <height>240</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#FlopButton{
 	
-	image: url(:/Photo/Game/翻牌A.png);
+	
+	image: url(:/Photo/MainWindow/翻牌图标.png);
 }
 QPushButton#FlopButton:hover{
 	
-	image: url(:/Photo/Game/翻牌B.png);
+	image: url(:/Photo/MainWindow/翻牌图标B.png);
 }</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="HandEyeButton">
-    <property name="geometry">
-     <rect>
-      <x>52</x>
-      <y>310</y>
-      <width>176</width>
-      <height>34</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton#HandEyeButton{
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="HandEyeButton">
+          <property name="minimumSize">
+           <size>
+            <width>170</width>
+            <height>240</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#HandEyeButton{
 	
-	image: url(:/Photo/Game/手眼协调A.png);
+	
+	image: url(:/Photo/MainWindow/手眼协调图标.png);
 }
 
 QPushButton#HandEyeButton:hover{
 	
-	image: url(:/Photo/Game/手眼协调B.png);
+		image: url(:/Photo/MainWindow/手眼协调图标B.png);
 }
 
 </string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="PointerButton">
+          <property name="minimumSize">
+           <size>
+            <width>170</width>
+            <height>240</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#PointerButton{	
+	
+	image: url(:/Photo/MainWindow/射击图标.png);
+}
+
+QPushButton#PointerButton:hover{	
+	image: url(:/Photo/MainWindow/射击图标B.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="BGWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1230</width>
+        <height>310</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="GameLabel">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1230</width>
+         <height>310</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/Game/csgo.1.jpg);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="StartBGButton">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1230</width>
+         <height>310</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>等线</family>
+         <pointsize>35</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#StartBGButton{	
+	color: rgb(255, 255, 255);
+}
+
+QPushButton#StartBGButton:hover{
+	
+	
+	color: rgb(206, 206, 206);
+}
+
+QPushButton#StartBGButton:pressed{
+	
+	
+	color: rgb(165, 165, 165);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>开 始 游 戏</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QWidget" name="EEGWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1230</width>
+        <height>310</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="EEGLabel">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1230</width>
+         <height>310</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/EEG/eeg_2_m.jpg);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="StartEEGButton">
+       <property name="geometry">
+        <rect>
+         <x>-10</x>
+         <y>0</y>
+         <width>1230</width>
+         <height>310</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>等线</family>
+         <pointsize>35</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#StartEEGButton{	
+	color: rgb(255, 255, 255);
+}
+
+QPushButton#StartEEGButton:hover{
+	
+	
+	color: rgb(206, 206, 206);
+}
+
+QPushButton#StartEEGButton:pressed{
+	
+	
+	color: rgb(165, 165, 165);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>启 动 应 用</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="LogoLabel">
+    <property name="geometry">
+     <rect>
+      <x>54</x>
+      <y>24</y>
+      <width>121</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/Photo/Logo/AEGLogo_m_2.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>AssistButton</tabstop>
+  <tabstop>ManageButton</tabstop>
+  <tabstop>BGButton</tabstop>
+  <tabstop>EEGButton</tabstop>
+  <tabstop>TestButton</tabstop>
+  <tabstop>PointerButton</tabstop>
+  <tabstop>VoiceButton</tabstop>
+  <tabstop>FlopButton</tabstop>
+  <tabstop>HandEyeButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

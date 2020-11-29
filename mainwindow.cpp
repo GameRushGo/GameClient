@@ -4,6 +4,7 @@
 #include "logindialog.h"
 #include "checkprocess.h"
 #include "cglobal.h"
+
 #include <QProcess>
 #include <QDebug>
 
@@ -26,21 +27,18 @@ MainWindow::MainWindow(QWidget *parent)
     voice_process = new QProcess();
     handEye_process = new QProcess();
 
+    //timer
+    timer = new QTimer(this);
+
     ui->setupUi(this);
 
-    //隐藏第二菜单button
-    ui->VoiceButton->setVisible(false);
-    ui->HandEyeButton->setVisible(false);
-    ui->FlopButton->setVisible(false);
-    ui->PointerButton->setVisible(false);
-    ui->BackButton->setVisible(false);
-
+    ui->stackedWidget->setCurrentIndex(1);
     //绑定按钮点击事件，并启动不同进程
     //EEG
     connect(ui->EEGButton,&QPushButton::pressed,
             [=]()
             {                
-                EEG_process->start(EEG_path);
+                ui->stackedWidget->setCurrentIndex(2);
             }
     );
 
@@ -48,15 +46,41 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->BGButton,&QPushButton::pressed,
             [=]()
             {
-                BG_process->start(BG_path);
+                ui->stackedWidget->setCurrentIndex(1);
             }
     );
+
+    //大游戏
+    connect(ui->StartBGButton, &QPushButton::pressed,
+            [=]()
+            {
+                BG_process->start(BG_path);
+                //LOG(INFO) << "Start Game: CS GO";
+            }
+    );
+
+    //EEG
+    connect(ui->StartEEGButton, &QPushButton::pressed,
+            [=]()
+            {
+                EEG_process->start(EEG_path);
+            }
+            );
+
+    //AssistButton
+    connect(ui->AssistButton, &QPushButton::pressed,
+            [=]()
+            {
+                ui->stackedWidget->setCurrentIndex(0);
+            }
+            );
 
     //HandEye
     connect(ui->HandEyeButton,&QPushButton::pressed,
             [=]()
             {
                 handEye_process->start(handEye_path);
+                //LOG(INFO) << "Start Game: HandEye";
             }
     );
 
@@ -65,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 pointer_process->start(pointer_path);
+                //LOG(INFO) << "Start Game: Pointer";
             }
     );
 
@@ -73,7 +98,7 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 flop_process->start(flop_path);
-                qDebug() << flop_path;
+                //LOG(INFO) << "Start Game: Flop";
             }
     );
 
@@ -82,47 +107,9 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 voice_process->start(voice_path);
-                qDebug() << voice_path;
+                //LOG(INFO) << "Start Game: Voice";
             }
     );
-
-    //辅助
-    connect(ui->AssistButton, &QPushButton::pressed,
-            [=]()
-            {
-                //显示第二菜单button
-                ui->BackButton->setVisible(true);
-                ui->VoiceButton->setVisible(true);
-                ui->FlopButton->setVisible(true);
-                ui->PointerButton->setVisible(true);
-                ui->HandEyeButton->setVisible(true);
-                //隐藏主菜单button
-                ui->BGButton->setVisible(false);
-                ui->ManageButton->setVisible(false);
-                ui->EEGButton->setVisible(false);
-                ui->LogoutButton->setVisible(false);
-                ui->AssistButton->setVisible(false);
-            }
-            );
-
-    //返回
-    connect(ui->BackButton, &QPushButton::pressed,
-            [=]()
-            {
-                //显示第二菜单button
-                ui->BackButton->setVisible(false);
-                ui->VoiceButton->setVisible(false);
-                ui->FlopButton->setVisible(false);
-                ui->PointerButton->setVisible(false);
-                ui->HandEyeButton->setVisible(false);
-                //隐藏主菜单button
-                ui->BGButton->setVisible(true);
-                ui->ManageButton->setVisible(true);
-                ui->EEGButton->setVisible(true);
-                ui->LogoutButton->setVisible(true);
-                ui->AssistButton->setVisible(true);
-            }
-            );
 
     //数据管理窗口(manageDialog)
     connect(ui->ManageButton, &QPushButton::pressed,
@@ -158,6 +145,7 @@ MainWindow::MainWindow(QWidget *parent)
                     qDebug() << "登录失败.";
                     exit(0);
                 }
+                onSetInfo();
                 this->setVisible(true);
             }
             );
@@ -184,6 +172,16 @@ MainWindow::MainWindow(QWidget *parent)
             }
             );
 
+    //checkbox
+    connect(ui->checkBox, &QPushButton::clicked, this, &MainWindow::onCheckBox);
+
+    //timer
+    connect(this->timer, &QTimer::timeout, this, &MainWindow::onTimer);
+
+    //启动照片墙
+    initGameLabel();
+    initEEGLabel();
+
     //在窗体启动时检查是否存在未关闭的应用
     app_list = CheckProcess::getFilePath();
     CheckProcess::LockProcess(app_list);
@@ -193,6 +191,7 @@ MainWindow::MainWindow(QWidget *parent)
     login_dialog->exec();
     delete login_dialog;
 
+    onSetInfo();
     //检查是否登录成功，若不成功将自动退出程序
     if(!isLogin) exit(0);
 }
@@ -219,8 +218,12 @@ MainWindow::~MainWindow()
     //检查是否存在未终止的应用并关停
     CheckProcess::LockProcess(app_list);
 
+    //终止计时器
+    timer->stop();
+
     delete file_watcher;
     delete m_data;
+    delete timer;
     delete ui;
 }
 
@@ -247,4 +250,166 @@ void MainWindow::initPath()
         else
             qDebug() << "Illegal Path!";
     }
+}
+
+//checkBox
+void MainWindow::onCheckBox()
+{
+    static int times = 0;
+    //奇偶校验
+    if(!(times++ & 1)){
+        ui->checkBox->setStyleSheet("image: url(:/Photo/MainWindow/选中.png);");
+        ui->showInfoLabel->setText("<html><head/><body><p><span style=\" color:#b9b9b9;\">显示敏感信息</span></p></body></html>");
+
+        //id
+        if(user_info.getIdentity().isEmpty()){
+            ui->IDLabel->setText("-");
+        }else{
+            ui->IDLabel->setText(user_info.getIdentity());
+        }
+
+        //tel
+        if(user_info.getTel().isEmpty()){
+            ui->telLabel->setText("-");
+        }else{
+            ui->telLabel->setText(user_info.getTel());
+        }
+
+    }else{
+        ui->checkBox->setStyleSheet("image: url(:/Photo/MainWindow/未选中.png);");
+        ui->showInfoLabel->setText("<html><head/><body><p><span style=\" color:#b9b9b9;\">隐藏敏感信息</span></p></body></html>");
+        ui->IDLabel->setText("******************");
+        ui->telLabel->setText("***********");
+    }
+}
+
+//CSGO图片墙
+void MainWindow::initGameLabel()
+{
+    game_pix_list.append("image: url(:/Photo/Game/csgo.0.jpg);");
+    game_pix_list.append("image: url(:/Photo/Game/csgo.1.jpg);");
+    game_pix_list.append("image: url(:/Photo/Game/csgo.2.jpg);");
+    game_pix_list.append("image: url(:/Photo/Game/csgo.3.jpg);");
+    game_pix_list.append("image: url(:/Photo/Game/csgo.4.jpg);");
+    game_pix_list.append("image: url(:/Photo/Game/csgo.5.jpg);");
+    game_pix_list.append("image: url(:/Photo/Game/csgo.6.jpg);");
+
+    game_opacity = new QGraphicsOpacityEffect(this);
+    ui->GameLabel->setGraphicsEffect(game_opacity);
+    game_opacity->setOpacity(0);
+
+    //设置渐变动画，持续800ms
+    game_animation = new QPropertyAnimation(this->game_opacity, "opacity");
+    game_animation->setDuration(800);
+    game_animation->setStartValue(0);
+    game_animation->setEndValue(1);
+    game_animation->setEasingCurve(QEasingCurve::Linear);
+    game_animation->start();
+
+    timer->start(5000);
+}
+
+//EEG图片墙
+void MainWindow::initEEGLabel()
+{
+    eeg_pix_list.append("image: url(:/Photo/EEG/eeg_0_m.jpg);");
+    eeg_pix_list.append("image: url(:/Photo/EEG/eeg_1_m.jpg);");
+    eeg_pix_list.append("image: url(:/Photo/EEG/eeg_2_m.jpg);");
+    eeg_pix_list.append("image: url(:/Photo/EEG/eeg_3_m.jpg);");
+    eeg_pix_list.append("image: url(:/Photo/EEG/eeg_4_m.jpg);");
+
+    eeg_opacity = new QGraphicsOpacityEffect(this);
+    ui->EEGLabel->setGraphicsEffect(eeg_opacity);
+    eeg_opacity->setOpacity(0);
+
+    //设置渐变动画
+    eeg_animation = new QPropertyAnimation(this->eeg_opacity, "opacity");
+    eeg_animation->setDuration(800);
+    eeg_animation->setStartValue(0);
+    eeg_animation->setEndValue(1);
+    eeg_animation->setEasingCurve(QEasingCurve::Linear);
+    eeg_animation->start();
+}
+
+//响应计时器，循环播放图片，GameLabel和EEGLabel共用一个timer
+void MainWindow::onTimer()
+{
+    static int game_cnt = 0;
+    static int eeg_cnt = 0;
+
+    ui->GameLabel->setStyleSheet(game_pix_list.at(game_cnt++));
+    game_animation->start();
+
+    ui->EEGLabel->setStyleSheet(eeg_pix_list.at(eeg_cnt++));
+    eeg_animation->start();
+
+    if(game_cnt > 6){
+        game_cnt = 0;
+    }
+
+    if(eeg_cnt > 4){
+        eeg_cnt = 0;
+    }
+}
+
+//读取json数据并显示
+void MainWindow::onSetInfo()
+{
+    //使用"-"代表不存在的用户信息
+    QString empty_str = "-";
+    //name
+    if(user_info.getName().isEmpty()){
+        ui->nameLabel->setText(empty_str);
+    }else{
+        ui->nameLabel->setText(user_info.getName());
+    }
+
+    //groupNum
+    if(user_info.getGroupnum() == 0){
+        ui->groupnumLabel->setText(empty_str);
+    }else{
+        ui->groupnumLabel->setText(QString::number(user_info.getGroupnum()));
+    }
+    //research
+    if(user_info.getResearch() == 0){
+        ui->researchLabel->setText(empty_str);
+    }else{
+        ui->researchLabel->setText(QString::number(user_info.getResearch()));
+    }
+
+    //department
+    if(user_info.getDepartment().isEmpty()){
+        ui->departmentLabel->setText(empty_str);
+    }else{
+        ui->departmentLabel->setText(user_info.getDepartment());
+    }
+
+    //grade
+    if(user_info.getGrade().isEmpty()){
+        ui->gradeLabel->setText(empty_str);
+    }else{
+        ui->gradeLabel->setText(user_info.getGrade());
+    }
+
+    //weight
+    if(user_info.getWeight() == 0.0){
+        ui->weightLabel->setText(empty_str);
+    }else{
+        ui->weightLabel->setText(QString::number(user_info.getWeight()));
+    }
+
+    //vision
+    if(user_info.getVision().isEmpty()){
+        ui->visionLabel->setText(empty_str);
+    }else{
+        ui->visionLabel->setText(user_info.getVision());
+    }
+
+    //account
+    if(user_info.getAccount().isEmpty()){
+        ui->accountLabel->setText(empty_str);
+    }else{
+        ui->accountLabel->setText(user_info.getAccount());
+    }
+
 }

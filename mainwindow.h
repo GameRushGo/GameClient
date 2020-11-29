@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QFileSystemWatcher>
 #include <QDir>
+#include <QGraphicsOpacityEffect>
+
 #include "managedata.h"
 #include "checkprocess.h"
 #include "ftpclient.h"
@@ -11,6 +13,7 @@
 #include "userinfo.h"
 #include "infodialog.h"
 #include "filewatcher.h"
+#include "cglobal.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,6 +27,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void initPath();
+    void initGameLabel();
+    void initEEGLabel();
+    void onCheckBox();
+    void onTimer();
+    void onFinished();
+    void onSetInfo();
 
 private:
     Ui::MainWindow *ui;
@@ -40,6 +49,10 @@ private:
     QString handEye_path;
     QList<QString> app_list;
 
+    //背景图路径
+    QStringList game_pix_list;
+    QStringList eeg_pix_list;
+
     //程序进程
     QProcess *EEG_process;
     QProcess *BG_process;
@@ -51,5 +64,10 @@ private:
     //文件监控
     FileWatcher *file_watcher;
 
+    QTimer *timer;
+    QPropertyAnimation *game_animation;
+    QGraphicsOpacityEffect  *game_opacity;
+    QPropertyAnimation *eeg_animation;
+    QGraphicsOpacityEffect *eeg_opacity;
 };
 #endif // MAINWINDOW_H
