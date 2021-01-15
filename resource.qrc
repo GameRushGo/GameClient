@@ -22,8 +22,6 @@
         <file>Photo/MainWindow/脑电程序B.png</file>
         <file>Photo/MainWindow/设置.png</file>
         <file>Photo/MainWindow/阴影.png</file>
-        <file>Photo/MainWindow/管理.png</file>
-        <file>Photo/MainWindow/管理B.png</file>
         <file>Photo/MainWindow/辅助程序B.png</file>
         <file>Photo/MainWindow/水平线.png</file>
         <file>Photo/News/赛博朋克_m.png</file>
@@ -58,5 +56,9 @@
         <file>Photo/Logo/AEGLogo_m.png</file>
         <file>Photo/MainWindow/Background.jpg</file>
         <file>Photo/Logo/AEGLogo_m_2.png</file>
+        <file>Photo/MainWindow/管理.png</file>
+        <file>Photo/MainWindow/管理B.png</file>
+        <file>Photo/MainWindow/主页.png</file>
+        <file>Photo/MainWindow/主页B.png</file>
     </qresource>
 </RCC>

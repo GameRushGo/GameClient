@@ -26,7 +26,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string/>
+   <string>登录(0.95beta)</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -463,10 +463,32 @@ QPushButton#CancelButton:hover{
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>480</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 4);</string>
+   </property>
+   <property name="text">
+    <string>内测版本，无需登录</string>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Logo</zorder>
-  <zorder>verticalLayoutWidget_2</zorder>
   <zorder>verticalLayoutWidget_4</zorder>
+  <zorder>label</zorder>
  </widget>
  <resources/>
  <connections/>

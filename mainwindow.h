@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -55,7 +55,6 @@ private:
 
     //程序进程
     QProcess *EEG_process;
-    QProcess *BG_process;
     QProcess *pointer_process;
     QProcess *flop_process;
     QProcess *voice_process;
