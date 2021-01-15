@@ -1,4 +1,4 @@
-#include "infodialog.h"
+﻿#include "infodialog.h"
 #include "ui_infodialog.h"
 #include "cglobal.h"
 
@@ -28,7 +28,7 @@ InfoDialog::~InfoDialog()
 //显示用户信息
 void InfoDialog::setInfo()
 {
-    QString empty_str = "-";
+    QString empty_str = QString::fromLocal8Bit("测试");
     //写入用户信息，如果为空，则使用"-"替换
     //groupnum
     if(user_info.getGroupnum() == 0){

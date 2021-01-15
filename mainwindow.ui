@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1600</width>
+    <width>1700</width>
     <height>900</height>
    </rect>
   </property>
@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>客户端</string>
+   <string>注意力增强游戏平台(0.95beta)</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -46,13 +46,70 @@
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>130</x>
       <y>10</y>
-      <width>1006</width>
+      <width>1246</width>
       <height>131</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="HomeButton">
+       <property name="minimumSize">
+        <size>
+         <width>236</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#HomeButton{
+	
+	
+	image: url(:/Photo/MainWindow/主页.png);
+}
+QPushButton#HomeButton:hover{
+	
+	image: url(:/Photo/MainWindow/主页B.png);
+}
+QPushButton#HomeButton:pressed{
+	
+	image: url(:/Photo/MainWindow/主页B.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>4</width>
+         <height>90</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/Photo/MainWindow/细条.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="BGButton">
        <property name="enabled">
@@ -109,7 +166,7 @@ QPushButton#BGButton:pressed
       <widget class="QLabel" name="label">
        <property name="minimumSize">
         <size>
-         <width>2</width>
+         <width>4</width>
          <height>90</height>
         </size>
        </property>
@@ -167,6 +224,12 @@ QPushButton#AssistButton::pressed{
      </item>
      <item>
       <widget class="QLabel" name="label_2">
+       <property name="minimumSize">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="styleSheet">
         <string notr="true">image: url(:/Photo/MainWindow/细条.png);</string>
        </property>
@@ -215,6 +278,12 @@ QPushButton#ManageButton::pressed{
      </item>
      <item>
       <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="styleSheet">
         <string notr="true">image: url(:/Photo/MainWindow/细条.png);</string>
        </property>
@@ -262,9 +331,9 @@ QPushButton#EEGButton:pressed{
    <widget class="QLabel" name="versionLabel">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>150</x>
       <y>850</y>
-      <width>181</width>
+      <width>331</width>
       <height>31</height>
      </rect>
     </property>
@@ -290,7 +359,7 @@ QPushButton#EEGButton:pressed{
     </property>
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>150</x>
       <y>480</y>
       <width>1251</width>
       <height>20</height>
@@ -306,8 +375,8 @@ QPushButton#EEGButton:pressed{
    <widget class="QWidget" name="InfoWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>1320</x>
-      <y>0</y>
+      <x>1400</x>
+      <y>10</y>
       <width>281</width>
       <height>721</height>
      </rect>
@@ -934,7 +1003,7 @@ QPushButton#EEGButton:pressed{
    <widget class="QWidget" name="newsWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>140</x>
       <y>510</y>
       <width>1251</width>
       <height>291</height>
@@ -1229,7 +1298,7 @@ border-image: url(:/Photo/News/英伟达_m.png);</string>
    <widget class="QWidget" name="horizontalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>1350</x>
+      <x>1430</x>
       <y>760</y>
       <width>211</width>
       <height>80</height>
@@ -1307,14 +1376,14 @@ border-image: url(:/Photo/News/英伟达_m.png);</string>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>150</x>
       <y>160</y>
       <width>1230</width>
-      <height>310</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QWidget" name="AssistWidget" native="true">
@@ -1606,10 +1675,10 @@ QPushButton#StartEEGButton:pressed{
    <widget class="QLabel" name="LogoLabel">
     <property name="geometry">
      <rect>
-      <x>54</x>
-      <y>24</y>
-      <width>121</width>
-      <height>111</height>
+      <x>20</x>
+      <y>20</y>
+      <width>101</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">

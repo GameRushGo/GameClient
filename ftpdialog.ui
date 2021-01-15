@@ -7,17 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>958</width>
-    <height>547</height>
+    <height>625</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>设置(0.95beta)</string>
   </property>
   <widget class="QPushButton" name="uploadButton">
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>440</y>
+     <y>490</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>440</y>
+     <y>490</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -43,9 +43,9 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>40</y>
+     <y>220</y>
      <width>801</width>
-     <height>361</height>
+     <height>211</height>
     </rect>
    </property>
   </widget>

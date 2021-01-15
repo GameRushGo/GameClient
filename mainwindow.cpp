@@ -1,13 +1,13 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "managedialog.h"
 #include "logindialog.h"
 #include "checkprocess.h"
 #include "cglobal.h"
+#include "easylogging++.h"
 
 #include <QProcess>
 #include <QDebug>
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,12 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     //初始化程序路径
     initPath();
-
     //启动文件监控
     file_watcher = new FileWatcher();
 
     //初始化进程
-    BG_process = new QProcess();
     EEG_process = new QProcess();
     pointer_process = new QProcess();
     flop_process = new QProcess();
@@ -42,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
             }
     );
 
-    //BG(大游戏)
+    //BG(大游戏) button
     connect(ui->BGButton,&QPushButton::pressed,
             [=]()
             {
@@ -54,8 +52,36 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->StartBGButton, &QPushButton::pressed,
             [=]()
             {
-                BG_process->start(BG_path);
-                //LOG(INFO) << "Start Game: CS GO";
+                STARTUPINFO si = {sizeof(si)};
+                PROCESS_INFORMATION pi ;
+                QString loginDataPath;
+                QString currentDir;
+
+                //获取存档目录
+                loginDataPath = QDir::currentPath() + "/login.dat";
+                currentDir = QDir::currentPath() + QString::fromLocal8Bit("/App/大游戏");
+
+                wchar_t *wAppName = new wchar_t[BG_path.length() + 1];
+                wchar_t *wCmdLine = new wchar_t[loginDataPath.length() + 1];
+                wchar_t *wCurrentDir = new wchar_t[currentDir.length() + 1];
+
+                //qstring -> wchar_t*
+                BG_path.toWCharArray(wAppName);
+                loginDataPath.toWCharArray(wCmdLine);
+                currentDir.toWCharArray(wCurrentDir);
+                wAppName[BG_path.length()] = '\0';
+                wCmdLine[loginDataPath.length()] = '\0';
+                wCurrentDir[currentDir.length()] = '\0';
+
+                //创建游戏进程
+                CreateProcessW(wAppName, NULL, NULL, NULL, FALSE, 0, NULL, wCurrentDir, &si, &pi);
+
+                LOG(INFO) << wAppName;
+                LOG(INFO) << wCmdLine;
+
+                delete[] wAppName;
+                delete[] wCmdLine;
+                delete[] wCurrentDir;
             }
     );
 
@@ -80,7 +106,6 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 handEye_process->start(handEye_path);
-                //LOG(INFO) << "Start Game: HandEye";
             }
     );
 
@@ -89,7 +114,6 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 pointer_process->start(pointer_path);
-                //LOG(INFO) << "Start Game: Pointer";
             }
     );
 
@@ -98,7 +122,6 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 flop_process->start(flop_path);
-                //LOG(INFO) << "Start Game: Flop";
             }
     );
 
@@ -107,7 +130,6 @@ MainWindow::MainWindow(QWidget *parent)
             [=]()
             {
                 voice_process->start(voice_path);
-                //LOG(INFO) << "Start Game: Voice";
             }
     );
 
@@ -201,7 +223,6 @@ MainWindow::~MainWindow()
 {
     //关闭进程
     EEG_process->close();
-    BG_process->close();
     handEye_process->close();
     voice_process->close();
     flop_process->close();
@@ -209,7 +230,6 @@ MainWindow::~MainWindow()
 
     //释放进程指针
     if(EEG_process) delete EEG_process;
-    if(BG_process) delete BG_process;
     if(handEye_process) delete handEye_process;
     if(voice_process) delete voice_process;
     if(flop_process) delete flop_process;
@@ -238,13 +258,13 @@ void MainWindow::initPath()
         if(path.contains("StickPinGame")){
             pointer_path = path;
         }
-        else if(path.contains("记忆")){
+        else if(path.contains(QString::fromLocal8Bit("记忆"))){
             flop_path = path;
         }
         else if(path.contains("FanFanLe6")){
             voice_path = path;
         }
-        else if(path.contains("手眼协调")){
+        else if(path.contains(QString::fromLocal8Bit("手眼协调"))){
             handEye_path = path;
         }
         else
@@ -258,26 +278,26 @@ void MainWindow::onCheckBox()
     static int times = 0;
     //奇偶校验
     if(!(times++ & 1)){
-        ui->checkBox->setStyleSheet("image: url(:/Photo/MainWindow/选中.png);");
-        ui->showInfoLabel->setText("<html><head/><body><p><span style=\" color:#b9b9b9;\">显示敏感信息</span></p></body></html>");
+        ui->checkBox->setStyleSheet(QString::fromLocal8Bit("image: url(:/Photo/MainWindow/选中.png);"));
+        ui->showInfoLabel->setText(QString::fromLocal8Bit("<html><head/><body><p><span style=\" color:#b9b9b9;\">显示敏感信息</span></p></body></html>"));
 
         //id
         if(user_info.getIdentity().isEmpty()){
-            ui->IDLabel->setText("-");
+            ui->IDLabel->setText(QString::fromLocal8Bit("测试ID"));
         }else{
             ui->IDLabel->setText(user_info.getIdentity());
         }
 
         //tel
         if(user_info.getTel().isEmpty()){
-            ui->telLabel->setText("-");
+            ui->telLabel->setText(QString::fromLocal8Bit("测试电话"));
         }else{
             ui->telLabel->setText(user_info.getTel());
         }
 
     }else{
-        ui->checkBox->setStyleSheet("image: url(:/Photo/MainWindow/未选中.png);");
-        ui->showInfoLabel->setText("<html><head/><body><p><span style=\" color:#b9b9b9;\">隐藏敏感信息</span></p></body></html>");
+        ui->checkBox->setStyleSheet(QString::fromLocal8Bit("image: url(:/Photo/MainWindow/未选中.png);"));
+        ui->showInfoLabel->setText(QString::fromLocal8Bit("<html><head/><body><p><span style=\" color:#b9b9b9;\">隐藏敏感信息</span></p></body></html>"));
         ui->IDLabel->setText("******************");
         ui->telLabel->setText("***********");
     }
@@ -356,7 +376,7 @@ void MainWindow::onTimer()
 void MainWindow::onSetInfo()
 {
     //使用"-"代表不存在的用户信息
-    QString empty_str = "-";
+    QString empty_str = QString::fromLocal8Bit("测试");
     //name
     if(user_info.getName().isEmpty()){
         ui->nameLabel->setText(empty_str);

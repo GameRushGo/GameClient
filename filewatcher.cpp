@@ -1,4 +1,4 @@
-#include "filewatcher.h"
+﻿#include "filewatcher.h"
 
 FileWatcher::FileWatcher()
 {
@@ -26,11 +26,11 @@ FileWatcher::FileWatcher()
 
     if(!data_file->exists()){
         if(!data_file->open(QIODevice::WriteOnly)){
-            qDebug() << "创建文件失败.";
+            qDebug() << QString::fromLocal8Bit("创建文件失败.");
         }
     }else{
         if(!data_file->open(QIODevice::ReadOnly)){
-            qDebug() << "读取文件失败.";
+            qDebug() << QString::fromLocal8Bit("读取文件失败.");
         }
         //读取数据到等待队列
         while(!data_file->atEnd()){
@@ -75,7 +75,7 @@ void FileWatcher::onFileChanged(const QString &path)
         delete file;
         return;
     }
-    qDebug() << "文件更新";
+    qDebug() << QString::fromLocal8Bit("文件更新");
     qDebug() << "File: " + path + " Changed";
 
     //上传文件
@@ -92,7 +92,7 @@ void FileWatcher::onDirChanged(const QString &)
 
     //文件增加
     if(map.find(ADD).key() == ADD){
-        qDebug() << "文件增加";
+        qDebug() << QString::fromLocal8Bit("文件增加");
         //上传文件        
         ftp->uploadFile(map[ADD][0]);
         qDebug() << "Add File: " + map[ADD][0];

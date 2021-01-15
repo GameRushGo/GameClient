@@ -74,7 +74,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource.qrc
 
-DISTFILES += \    
+DISTFILES += \
     Log/QFtp模块编译与修改记录.txt \
     Photo/头像.jpg \
     Photo/头像.png

@@ -1,4 +1,4 @@
-#include "ftpdialog.h"
+﻿#include "ftpdialog.h"
 #include "ui_ftpdialog.h"
 
 FtpDialog::FtpDialog(QWidget *parent) :
@@ -102,23 +102,23 @@ void FtpDialog::ftpCommandStarted(int)
 {
     //连接主机
     if(ftp->currentCommand() == QFtp::ConnectToHost){
-        ui->textBrowser->append("FtpClient::ftpCommandStarted => 尝试连接主机...");
+        ui->textBrowser->append("FtpClient::ftpCommandStarted => Try to connect to host...");
     }
     //登录
     if(ftp->currentCommand() == QFtp::Login){
-        ui->textBrowser->append("FtpClient::ftpCommandStarted => 正在登录...");
+        ui->textBrowser->append("FtpClient::ftpCommandStarted => Try to login...");
     }
     //下载
     if(ftp->currentCommand() == QFtp::Get){
-        ui->textBrowser->append("FtpClient::ftpCommandStarted => 正在下载文件...");
+        ui->textBrowser->append("FtpClient::ftpCommandStarted => Try to download file...");
     }
     //上传
     if(ftp->currentCommand() == QFtp::Put){
-        ui->textBrowser->append("FtpClient::ftpCommandStarted => 正在上传文件...");
+        ui->textBrowser->append("FtpClient::ftpCommandStarted => Try to upload file...");
     }
     //中断连接
     if(ftp->currentCommand() == QFtp::Close){
-        ui->textBrowser->append("FtpClient::ftpCommandStarted => 正在中断连接...");
+        ui->textBrowser->append("FtpClient::ftpCommandStarted => Try to disconnect to host...");
     }
 }
 
@@ -126,50 +126,50 @@ void FtpDialog::ftpCommandFinished(int, bool error)
 {
     if(ftp->currentCommand() == QFtp::ConnectToHost){
         if(error){
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 连接主机失败.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => Failed to connect to host."));
         }else{
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 连接主机成功.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => Connect to host successful."));
         }
     }
 
     if(ftp->currentCommand() == QFtp::Login){
         if(error){
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 登录失败.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => Login failed."));
         }else{
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 登录成功.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => Login successful"));
         }
     }
 
     if(ftp->currentCommand() == QFtp::Get){
         if(error){
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 下载失败.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => Download failed"));
         }else{
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 下载成功.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => Download successful"));
         }
         m_file->close();
     }
 
     if(ftp->currentCommand() == QFtp::Put){
         if(error){
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 上传失败.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => 上传失败."));
         }else{
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 上传成功.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => 上传成功."));
         }
     }
 
     if(ftp->currentCommand() == QFtp::Cd){
         if(error){
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 切换目录失败.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => 切换目录失败."));
         }else{
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 切换目录成功.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => 切换目录成功."));
         }
     }
 
     if(ftp->currentCommand() == QFtp::Close){
         if(error){
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 中断连接失败.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => 中断连接失败."));
         }else{
-            ui->textBrowser->append("FtpClient::ftpCommandFinished => 终端连接成功.");
+            ui->textBrowser->append(QString::fromLocal8Bit("FtpClient::ftpCommandFinished => 终端连接成功."));
         }
     }
 }

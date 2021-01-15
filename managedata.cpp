@@ -1,11 +1,10 @@
-#include "managedata.h"
+﻿#include "managedata.h"
 
 ManageData::ManageData()
 {
     //创建ini
     pIni = new QSettings(QCoreApplication::applicationDirPath() + "/setting.ini", QSettings::IniFormat);
     pIni->setIniCodec(QTextCodec::codecForName("utf-8"));
-    //qDebug() << "setting.ini path: " << QCoreApplication::applicationDirPath() + "/setting.ini";
 }
 
 //回收内存

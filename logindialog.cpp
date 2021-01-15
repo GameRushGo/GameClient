@@ -1,4 +1,4 @@
-#include "logindialog.h"
+﻿#include "logindialog.h"
 #include "ui_logindialog.h"
 #include "cglobal.h"
 #include "structs.h"
@@ -21,36 +21,7 @@ LoginDialog::LoginDialog(QWidget *parent) :
     //初始化类
     m_data = new ManageData();
     naManager = new QNetworkAccessManager(this);
-
-    /*
-    //设置窗口透明
-    setWindowFlag(Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_TranslucentBackground);    
-
-    //调用未公开api实现半透明效果
-    HWND hwnd = HWND(this->winId());
-    HMODULE hmoudle = GetModuleHandle(L"user32.dll");
-
-    if(!hmoudle) {
-        qDebug() << "can not load user32.dll";
-    }else {
-        //获取api地址
-        pfnSetWindowCompositionAttribute SetWindowCompositionAttribute = \
-                (pfnSetWindowCompositionAttribute)GetProcAddress\
-                (hmoudle, "SetWindowCompositionAttribute");
-
-        if(SetWindowCompositionAttribute) {
-            ACCENT_POLICY accent = { ACCENT_ENABLE_BLURBEHIND, 0, 0, 0 };
-            WINDOWCOMPOSITIONATTRIBDATA data;
-            data.Attrib = WCA_ACCENT_POLICY;
-            data.pvData = &accent;
-            data.cbData = sizeof(accent);
-            SetWindowCompositionAttribute(hwnd, &data);
-        }
-    }
-    */
-
-    ui->setupUi(this);
+    ui->setupUi(this);   
 
     //隐藏菜单栏
     setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
@@ -60,7 +31,6 @@ LoginDialog::LoginDialog(QWidget *parent) :
 
     //读取本地密码信息
     readPasswd();
-
     //绑定取消按钮
     connect(ui->CancelButton, &QPushButton::pressed,
             [=]()
@@ -101,6 +71,7 @@ bool LoginDialog::login(const QString& username, const QString& password)
 {
 #ifdef NotNeedLogin
     isLogin = true;
+
     this->accept();
     return true;
 
@@ -115,8 +86,8 @@ bool LoginDialog::login(const QString& username, const QString& password)
     //检查用户名和密码是否为空
     if(username.isEmpty() || password.isEmpty()){
         //设置全局登录标志为false
-        isLogin = false;
-        ui->InfoLabel->setText("用户名或密码不可为空");
+        isLogin = false;        
+        ui->InfoLabel->setText(QString::fromLocal8Bit("用户名或密码不可为空"));
         ui->LoginButton->setEnabled(true);
         return false;
     }
@@ -156,7 +127,7 @@ void LoginDialog::onfinishedSlot(QNetworkReply *reply)
         //设置全局登录标志为false
         isLogin = false;
         LOG(ERROR) << QString(reply->error()).toStdString();
-        ui->InfoLabel->setText("网络连接异常，请重试.");
+        ui->InfoLabel->setText(QString::fromLocal8Bit("网络连接异常，请重试."));
         reply->deleteLater();
         return;
     }
@@ -164,7 +135,7 @@ void LoginDialog::onfinishedSlot(QNetworkReply *reply)
     //检查返回数据是否为空
     if(byte_array.isEmpty() || byte_array.isNull()){
         isLogin = false;
-        ui->InfoLabel->setText("服务器异常，请重试.");
+        ui->InfoLabel->setText(QString::fromLocal8Bit("服务器异常，请重试."));
         reply->deleteLater();
         return;
     }
@@ -174,7 +145,7 @@ void LoginDialog::onfinishedSlot(QNetworkReply *reply)
     //检查是否登录成功
     if(!QString::compare(QString(byte_array), "lgerror\r\n")){
         isLogin = false;
-        ui->InfoLabel->setText("用户名或密码错误，请重试.");
+        ui->InfoLabel->setText(QString::fromLocal8Bit("用户名或密码错误，请重试."));
         reply->deleteLater();
         return;
     }
@@ -183,7 +154,7 @@ void LoginDialog::onfinishedSlot(QNetworkReply *reply)
     //检查json数据是否合法
     if(!readJosn(byte_array)){
         isLogin = false;
-        ui->InfoLabel->setText("数据异常，请重试.");
+        ui->InfoLabel->setText(QString::fromLocal8Bit("数据异常，请重试."));
         reply->deleteLater();
         return;
     }
@@ -281,24 +252,49 @@ bool LoginDialog::readJosn(const QByteArray &byte_array)
 
 
 //存储密码
+/* 密码存储
+ * 本函数将创建两个login.dat用于用户cookie.
+ * 当用户正确登录后，将在程序所在同级目录和USERPROFILE目录创建login.dat文件
+*/
 void LoginDialog::savePasswd(const QString &password)
 {    
-    QFile *file = new QFile("login.dat");
+    QString userProfilePath;
+    QFile *localFile;
+    QFile *backupFile;
 
-    if(!file->open(QIODevice::WriteOnly | QIODevice::Text)){
-        LOG(ERROR) << "Can not open file";
+    //本地保存
+    localFile = new QFile("login.dat");
+    if(!localFile->open(QIODevice::WriteOnly | QIODevice::Text)){
+        LOG(ERROR) << "Create login.dat failed.";
+        return;
+    }       
+    //写入文件
+    localFile->write("account#");
+    localFile->write(username.toUtf8());
+    localFile->write("\npassword#");
+    localFile->write(password.toUtf8());
+
+    //USERPROFILE保存
+    userProfilePath = QProcessEnvironment::systemEnvironment().value("USERPROFILE") + "\\login.dat";
+    backupFile = new QFile(userProfilePath);
+
+    if(!backupFile->open(QIODevice::WriteOnly | QIODevice::Text)){
+        LOG(ERROR) << "Create login.dat failed.";
         return;
     }
+    backupFile->write("account#");
+    backupFile->write(username.toUtf8());
+    backupFile->write("\npassword#");
+    backupFile->write(password.toUtf8());
 
-    //写入文件
-    file->write("account#");
-    file->write(username.toUtf8());
-    file->write("\npassword#");
-    file->write(password.toUtf8());
+    if(localFile){
+        localFile->close();
+        delete localFile;
+    }
 
-    if(file){
-        file->close();
-        delete file;
+    if(backupFile){
+        backupFile->close();
+        delete backupFile;
     }
 }
 
@@ -311,14 +307,27 @@ void LoginDialog::readPasswd()
     //检查是否存在login.dat文件并读取
     QFile *file = new QFile("login.dat");
     if(!file->open(QIODevice::ReadWrite | QIODevice::Text)) {
-        LOG(INFO) << "Not find login file.";
+        file->close();
+        LOG(ERROR) << "Not find login file.";
         return;
     }
 
-
     QString account_line = file->readLine();
+    //bug修复：对account_line是否为空进行验证
+    //原bug：当account_line为空时，使用remove方法将触发异常
+    if(account_line == ""){
+        file->close();
+        qDebug() << "Invaild Passwd File.";
+        return;
+    }
     account_line.remove(QChar(0xa));
+
     QString enpasswd_line = file->readLine();
+    if(enpasswd_line == ""){
+        file->close();
+        qDebug() << "Invaild Passwd File.";
+        return;
+    }
 
     //分隔字符串
     account = account_line.split('#').at(1);
